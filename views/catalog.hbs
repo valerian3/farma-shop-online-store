@@ -1,0 +1,53 @@
+
+{{#if pharmacy.length}}
+<div class="catalog" style="display: flex;">
+    <div class="left-filter">
+        <ul>
+            <form action="/catalog/filters" method="POST"><li><button type="submit" style="">Усі виробники</button></li>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="elem" value=""></form>
+            <form action="/catalog/filters" method="POST"><li><button type="submit">Sanofi</button></li>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="elem" value="Sanofi"></form>
+            <form action="/catalog/filters" method="POST"><li><button type="submit">Bayer</button></li>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="elem" value="Bayer"></form>
+            <form action="/catalog/filters" method="POST"><li><button type="submit">Bionorica</button></li>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="elem" value="Bionorica"></form>
+            <form action="/catalog/filters" method="POST"><li><button type="submit">Biopharma</button></li>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="elem" value="Biopharma"></form>
+        </ul>
+    </div>
+
+    <div class='goods'>
+        {{#each pharmacy}}
+        <div class="goods-block">
+            <div class="goods-image center"><a href="/catalog/{{id}}" target="_blank"><img src="{{img}}"
+                        alt="{{title}}"></a></div>
+            <div class="goods-name">{{title}}</div>
+            <div class="goods-maker center">{{maker}}</div>
+            <div class="goods-price price">{{price}}</div>
+            {{#if @root.isAdmin}}<a href="/catalog/{{id}}/edit?allow=true">Редагувати</a> {{/if}}
+           
+            {{#if @root.isAuth}}
+
+            <form action="/basket/add" method="POST">
+                <input type="hidden" name="id" value="{{id}}">
+                <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                <button class="btn btn-primary center" type="submit">придбати</button>
+            </form>
+            {{else}}
+            {{#if @root.isAdmin}} {{else}}
+            <button class="btn btn-primary"><a class="white-text" href="/auth/login#login">придбати</a></button>
+            {{/if}}
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{else}}
+<h2 class="center">Ліки відсутні</h2>
+{{/if}}

@@ -1,0 +1,36 @@
+{{#if orders.length}}
+{{#each orders}}
+
+<div class="row">
+    <div class="col s6 offset-s3">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">
+                    Замовлення <small>{{_id}}</small>
+                </span>
+                <p class="date">{{date}}</p>
+                <p><em>{{user.userId.name}}</em>({{user.userId.email}})</p>
+                <ol>
+                    {{#each pharmacy}}
+                            <li>{{pharma.title}} (x <strong>{{count}}</strong> )</li>
+                        {{/each}}
+                </ol>
+
+                <hr>
+
+                <p>Ціна<span class="price">{{price}}</span></p>
+                <form action="/done" method="POST">
+
+<input type="text" name="done">
+<input type="hidden" name="id_delete" value="{{_id}}">
+<button type="submit" class="btn btn-primary">Виконано</button><input type="hidden" name="_csrf" value="{{@root.csrf}}"></form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/each}}
+
+{{else}}
+<p>Замовлень поки що немає</p>
+{{/if}}

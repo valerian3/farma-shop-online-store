@@ -1,0 +1,71 @@
+<h2 class="center">Редагувати засоби</h2>
+
+<form action="/catalog/edit" method="POST" class="add-product">
+
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" value="{{pharmacy.title}}" required>
+        <label for="title">Назва</label>
+        <span class="helper-text" data-error="Введіть назву"></span>
+    </div>
+
+    <div class="input-field s6">
+        <input id="maker" name="maker" type="text" class="validate" value="{{pharmacy.maker}}" required>
+        <label for="maker">Виробник</label>
+        <span class="helper-text" data-error="Введіть виробника"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="quantity" name="quantity" type="number" class="validate" value="{{pharmacy.quantity}}" required min="1">
+        <label for="quantity">Кількість</label>
+        <span class="helper-text" data-error="Введіть кількість"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="price" name="price" type="number" class="validate" value="{{pharmacy.price}}" required min="1">
+        <label for="price">Ціна</label>
+        <span class="helper-text" data-error="Введіть ціну"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="type" name="type" type="text" class="validate" value="{{pharmacy.type}}" required>
+        <label for="type">Тип</label>
+        <span class="helper-text" data-error="Введіть тип"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="description" name="description" type="text" class="validate" value="{{pharmacy.description}}" required>
+        <label for="description">Примітка</label>
+        <span class="helper-text" data-error="Введіть опис"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" value="{{pharmacy.img}}" required>
+        <label for="img">Фото</label>
+        <span class="helper-text" data-error="Введіть адресу фото"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img1" name="img1" type="text" class="validate" value="{{pharmacy.img1}}" required>
+        <label for="img1">Фото1</label>
+        <span class="helper-text" data-error="Введіть адресу фото"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img2" name="img2" type="text" class="validate" value="{{pharmacy.img2}}" required>
+        <label for="img2">Фото2</label>
+        <span class="helper-text" data-error="Введіть адресу фото"></span>
+    </div>
+
+    <input type="hidden" name='id' value='{{pharmacy.id}}'>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary" type="submit">Редагувати товар</button>
+
+    {{!-- <input type="hidden" value=""> --}}
+    
+</form>
+
+<form action="/catalog/remove" method="POST" class="center">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <input type="hidden" name='id' value='{{pharmacy.id}}'>
+    <button class="btn red">Видалити товар</button>
+</form>

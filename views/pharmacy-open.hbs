@@ -1,0 +1,29 @@
+<div class="containerx">
+    <div class="left-column"> <img class="active" src="{{pharmacy.img}}" alt="" data-image="red" /></div>
+    <pre>
+
+  </pre>
+    <div class="right-column">
+        <div class="product-description">{{pharmacy.maker}}
+            <h1>{{pharmacy.title}}</h1>
+            {{pharmacy.description}}</div>
+        <div class="product-configuration">
+            <div class="product-color">
+            </div>
+            <div class="cable-config">Тип засобу
+                <div class="cable-choose">{{pharmacy.type}}
+                </div>
+                <a href="/connect">Підтримка</a></div>
+        </div>
+        <div class="product-price">
+            <pre class="price">{{pharmacy.price}}    
+                
+    </div>
+        {{#if isAdmin}}{{else}}
+    <form action="/basket/add" method="POST">
+            <input type="hidden" name="id" value="{{pharmacy.id}}">
+            <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+            <button class="btn btn-primary center" type="submit">придбати</button>
+        </form>
+        {{/if}}
+    <pre></div></div>

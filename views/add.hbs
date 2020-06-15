@@ -1,0 +1,67 @@
+<h1 class="center">Додати товар</h1>
+{{#if error}}
+    <p class="alert-message">{{error}}</p>
+{{/if}}
+<form action="/add" method="POST" class="add-product" novalidate>
+
+
+
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required value={{data.title}}>
+        <label for="title">Назва засобу</label>
+        <span class="helper-text" data-error="Введіть назву"></span>
+    </div>
+
+    <div class="input-field s6">
+        <input id="maker" name="maker" type="text" class="validate" required value={{data.maker}}>
+        <label for="maker">Виробник</label>
+        <span class="helper-text" data-error="Введіть виробника"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="quantity" name="quantity" type="number" class="validate" required min="1" value={{data.quantity}}>
+        <label for="quantity">Кількість</label>
+        <span class="helper-text" data-error="Введіть кількість"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="price" name="price" type="number" class="validate" required min="1" value={{data.price}}>
+        <label for="price">Ціна</label>
+        <span class="helper-text" data-error="Введіть ціну"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="type" name="type" type="text" class="validate" required value={{data.type}}>
+        <label for="type">Тип засобу</label>
+        <span class="helper-text" data-error="Введіть тип"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="description" name="description" type="text" class="validate" required value={{data.description}}>
+        <label for="description">Опис</label>
+        <span class="helper-text" data-error="Введіть опис"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required value={{data.img}}>
+        <label for="img">Фото</label>
+        <span class="helper-text" data-error="Введіть адресу фото"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img1" name="img1" type="text" class="validate" required value={{data.img1}}>
+        <label for="img1">Фото1</label>
+        <span class="helper-text" data-error="Введіть адресу фото 1"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img2" name="img2" type="text" class="validate" required value={{data.img2}}>
+        <label for="img2">Фото2</label>
+        <span class="helper-text" data-error="Введіть адресу фото 2"></span>
+    </div>
+
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary" type="submit">Додати засіб</button>
+
+    {{!-- <input type="hidden" value=""> --}}
+</form>

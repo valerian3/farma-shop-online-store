@@ -1,0 +1,28 @@
+.catalog {
+  display: flex;
+}
+
+.left-filter {
+    margin: 2.3rem 5rem;
+    padding: 0 auto;
+    width: 15%;
+}
+
+.left-filter button{
+    border: 0px; 
+    background-color: transparent;
+}
+
+.left-filter li {
+    border: 1px solid rgb(177, 176, 176);
+    padding: 10px;
+    width: 100%;
+}
+
+.left-filter li a {
+    color: black;
+}
+
+.left-filter li:hover {
+    background-color: #dddcdc;
+}
